@@ -62,6 +62,7 @@ body {
     font-weight: bold;
     color: var(--primary-color);
     font-family: monospace;
+    letter-spacing: 0.2rem;
 }
 
 /* Desktop Nav */
@@ -89,27 +90,6 @@ body {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--nav-bg);
-        padding-top: 100px;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.2rem;
-        transform: translateX(-100%);
-        transition: 0.4s;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
     .hamburger {
         display: block;
         cursor: pointer;
@@ -192,7 +172,7 @@ body {
 }
 
 .name-title {
-    font-size: 4.5rem;
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
     margin-bottom: 1rem;
     line-height: 1.1;
     background: linear-gradient(90deg, 
@@ -208,13 +188,15 @@ body {
     animation: gradient 8s ease infinite;
 }
 
-/* Hero Section - Removed nested mobile navigation and hamburger rules */
+/* Hero Section */
 
 /* Sections */
 section {
     padding: 100px 2rem;
     max-width: 1000px;
     margin: 0 auto;
+    /* Ensure in-page links are not hidden behind fixed navbar */
+    scroll-margin-top: 100px;
 }
 
 .section-header {
@@ -238,33 +220,6 @@ section {
     width: 300px;
     background-color: var(--secondary-text);
     opacity: 0.3;
-}
-
-/* About Section */
-.about-content {
-    color: var(--secondary-text);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.about-item {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
-}
-
-.about-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 /* Skills Section */
@@ -379,27 +334,20 @@ section {
 }
 
 /* Social Links */
-.social-links {
-    display: flex;
-    justify-content: flex-start;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.social-links a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
+/* (Removed unused .social-links styles) */
 
 /* Button Styles */
+.hero-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.75rem;
+}
 .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 2rem;
     border: 1px solid var(--primary-color);
     text-decoration: none;
@@ -414,20 +362,16 @@ section {
     background-color: var(--button-primary);
     color: var(--bg-color);
     border-color: var(--button-primary);
-    position: relative;
-    overflow: hidden;
     transition: all 0.3s ease;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .cta-button.secondary {
     background-color: transparent;
     color: var(--primary-color);
     border-color: var(--primary-color);
-    position: relative;
-    overflow: hidden;
     transition: all 0.3s ease;
-    margin-left: 0.5rem;
+    margin-top: 1rem;
 }
 
 .cta-button.primary:hover {
@@ -443,35 +387,13 @@ section {
     box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1);
 }
 
-/* Floating Home Button */
-.floating-home-btn {
-    display: none; /* Hidden by default */
+/* Keyboard focus visibility */
+.cta-button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
-    .floating-home-btn {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        width: 40px;
-        height: 40px;
-        background-color: var(--primary-color);
-        color: var(--bg-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
-        transition: all 0.3s ease;
-        z-index: 1001;
-    }
 
-    .floating-home-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(100, 255, 218, 0.4);
-    }
-}
 
 /* Footer */
 footer {
@@ -499,11 +421,7 @@ footer {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Progress Bars */
-.python-progress { width: 90%; }
-.javascript-progress { width: 85%; }
-.react-progress { width: 80%; }
-.sql-progress { width: 85%; }
+/* Progress Bars widths are applied inline; removed unused specific classes */
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -536,7 +454,7 @@ footer {
         margin-top: 2rem;
     }
 
-    .social-links, .hero-buttons {
+    .hero-buttons {
         justify-content: center;
     }
 
@@ -637,17 +555,24 @@ footer {
     section {
         max-width: 1400px;
     }
-}/* Add these styles to your existing style.css file */
+}
 
+/* Compact section padding on small screens */
+@media (max-width: 600px) {
+    section {
+        padding: 60px 1rem;
+    }
+    .section-header::after {
+        width: 160px;
+    }
+    .hero-buttons { margin-top: 1rem; }
+}
 /* Active Navigation Link */
 .nav-links a.active {
     color: var(--primary-color);
 }
 
-/* About Hero Section */
-.about-hero {
-    padding-top: 120px;
-}
+/* (Removed unused .about-hero) */
 
 .about-hero-content {
     display: grid;
@@ -656,49 +581,7 @@ footer {
     align-items: center;
 }
 
-.about-image {
-    /* Circular profile for about page */
-    position: relative;
-    width: clamp(160px, 28vw, 420px);
-    height: clamp(160px, 28vw, 420px);
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 8px 24px rgba(100,255,218,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255,255,255,0.02);
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-color);
-    mix-blend-mode: screen;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
-}
-
-.about-image:hover .profile-image {
-    filter: grayscale(0%);
-}
-
-.about-image:hover .image-overlay {
-    opacity: 0;
-}
+/* (Removed unused .about-image/.profile-image/.image-overlay styles) */
 
 .about-text-content {
     color: var(--secondary-text);
@@ -861,11 +744,6 @@ footer {
         gap: 2rem;
     }
 
-    .about-image {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
     .timeline-item {
         margin-left: 0;
     }
@@ -898,21 +776,40 @@ footer {
 }
 
 /* Glowing Buttons */
-@keyframes glowPulse {
-  0%,100% {
-    box-shadow: 0 0 20px rgba(100,255,218,0.2);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(100,255,218,0.35);
-  }
+/* Reuse single glowPulse keyframes for subtle UI emphasis */
+/* remove persistent glow; use only hover effects */
+
+
+/* About section enhancements */
+.about-hero-content {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 2rem;
 }
 
-.cta-button.primary, .cta-button.secondary {
-  animation: glowPulse 4s ease-in-out infinite;
+.about-text-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
+.about-text-content p {
+    margin-bottom: 1rem;
+}
 
+.about-text-content .experience-list {
+    margin-top: 1rem;
+}
 
+.about-text-content .experience-list li {
+    margin-bottom: 0.6rem;
+}
 
+.about-text-content .hero-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
 
+/* About section enhancements */
 
