@@ -28,6 +28,19 @@ body {
     line-height: 1.6;
 }
 
+/* Subtle animated background particles/net feel */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(600px 200px at 20% 10%, rgba(168,85,247,0.06), transparent 60%),
+      radial-gradient(500px 180px at 80% 30%, rgba(236,72,153,0.06), transparent 60%),
+      radial-gradient(700px 260px at 50% 80%, rgba(16,185,129,0.05), transparent 60%);
+    z-index: 0;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -58,12 +71,11 @@ body {
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    font-family: monospace;
-    letter-spacing: 0.2rem;
-}
+    height: 70px; 
+    width: auto;
+    display: flex;
+    margin-top: 0.5rem;
+}   
 
 /* Desktop Nav */
 .nav-links {
@@ -233,7 +245,7 @@ section {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 4px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-soft);
     transition: transform 0.3s ease;
 }
 
@@ -273,7 +285,8 @@ section {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 4px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-soft);
+    backdrop-filter: saturate(120%) blur(6px);
     transition: all 0.3s ease;
 }
 
@@ -362,6 +375,8 @@ section {
     background-color: var(--button-primary);
     color: var(--bg-color);
     border-color: var(--button-primary);
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
     margin-top: 1rem;
 }
@@ -392,6 +407,29 @@ section {
     outline: 2px solid var(--primary-color);
     outline-offset: 3px;
 }
+
+/* Glow Pulse animation */
+@keyframes glowPulse {
+    0%,100% {
+      box-shadow: 0 0 20px rgba(100,255,218,0.2);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(100,255,218,0.35);
+    }
+  }
+
+ /* Glow Pulse on buttons (hover) */
+ .cta-button.primary:hover, .cta-button.secondary:hover {
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+ /* Persistent glow: default on primary; opt-in via .glow on any button */
+ .cta-button.primary,
+ .cta-button.glow {
+     animation: glowPulse 4s ease-in-out infinite;
+ }
+
+
 
 
 
@@ -605,7 +643,7 @@ footer {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 4px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-soft);
     transition: transform 0.3s ease;
 }
 
@@ -663,7 +701,7 @@ footer {
     padding: 2rem;
     border-left: 2px solid var(--primary-color);
     margin-left: 1rem;
-    margin-bottom: 2rem;
+    
 }
 
 .timeline-item::before {
@@ -713,7 +751,7 @@ footer {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 4px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--border-soft);
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -759,15 +797,6 @@ footer {
   }
   100% {
     transform: translateY(0);
-  }
-}
-
-@keyframes glowPulse {
-  0%,100% {
-    box-shadow: 0 0 20px rgba(100,255,218,0.2);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(100,255,218,0.35);
   }
 }
 
