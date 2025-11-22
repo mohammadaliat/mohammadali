@@ -50,4 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+   document.getElementById('myProject').addEventListener('click', () => {
+    window.open('https://mohammadaliat.github.io', '_blank');
+  });
 });

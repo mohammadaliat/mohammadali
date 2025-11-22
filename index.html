@@ -20,6 +20,14 @@
                 <li><a href="index.html#skills">Skills</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdownbutton">More <span class="arrow-icon"></span></a>
+                    <div class="dropdown-content">
+                        <a href="index.html#education">Education</a>
+                        <a href="index.html#experience">Experience</a>
+                        <a href="index.html#interests">Interests</a>
+                    </div>
+                </li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -111,7 +119,7 @@
                 <i class="fa-brands fa-js"></i>
                 <h3>JavaScript</h3>
                 <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
+                    <div class="progress progress-50"></div>
                 </div>
             </div>
             <div class="skill-card fade-in">
@@ -132,7 +140,7 @@
     </section>
 
     <!-- Education Section -->
-    <section class="education">
+    <section id="education" class="education">
         <div class="section-header">
             <h2>Education</h2>
         </div>
@@ -157,7 +165,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="experience">
+    <section id="experience" class="experience">
         <div class="section-header">
             <h2>Experience</h2>
         </div>
@@ -192,40 +200,42 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="featured-projects" class="featured-projects">
         <div class="section-header">
             <h2>Featured Projects</h2>
         </div>
+
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <h3>AI-Powered Image Analysis</h3>
-                <p>Deep learning model for image classification and object detection</p>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>TensorFlow</span>
-                    <span>Computer Vision</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
-                </div>
+            <h3>AI-Powered Image Analysis</h3>
+            <p>Deep learning model for image classification and object detection.</p>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>Computer Vision</span>
             </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 85%"></div>
+            </div>
+            </div>
+
             <div class="project-card fade-in">
-                <h3>Data Visualization Dashboard</h3>
-                <p>Interactive dashboard for data analysis and visualization</p>
-                <div class="project-tags">
-                    <span>React</span>
-                    <span>D3.js</span>
-                    <span>Node.js</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%"></div>
-                </div>
+            <h3>Data Visualization Dashboard</h3>
+            <p>Interactive dashboard for data analysis and visualization.</p>
+            <div class="project-tags">
+                <span>React</span>
+                <span>D3.js</span>
+                <span>Node.js</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 90%"></div>
+            </div>
             </div>
         </div>
     </section>
 
     <!-- Interests Section -->
-    <section class="interests">
+    <section id="interests" class="interests">
         <div class="section-header">
             <h2>Interests</h2>
         </div>
