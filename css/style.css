@@ -419,8 +419,23 @@ section {
     transition: width 0.3s ease;
 }
 
+.progress-75{
+    width: 75%;
+}
 .progress-50{
     width: 50%;
+}
+
+.progress-25{
+    width: 25%;
+}
+
+.progress-35{
+    width: 35%;
+}
+
+.progress-10{
+    width: 10%;
 }
 
 /* Experience Section */
