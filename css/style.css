@@ -279,7 +279,7 @@ display: inline-block;
 /* Sections */
 section {
     padding: 100px 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     scroll-margin-top: 100px;
     padding: 3rem 2rem 5rem 2rem;
@@ -365,30 +365,52 @@ section {
 }
 
 .skill-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 4px;
-    border: 1px solid var(--border-soft);
-    transition: transform 0.3s ease;
+  height: 140px;                 
+  padding: 16px 14px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(160deg, #050f1e, #020914);
+  transition: all 0.25s ease;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 255, 200, 0.18);
 }
 
-.skill-card i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+.skill-card img,
+.skill-card i,
+.skill-card svg {
+  width: 40px;    
+  height: 40px;   
+  font-size: 40px;
+  margin-top: 6px;
+  margin-bottom: auto;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-card h3,
+.skill-card .skill-name {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #e6f1ff;
+  margin-top: auto;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
 .progress-bar {
     width: 100%;
-    height: 4px;
-    background-color: var(--card-bg);
-    border-radius: 2px;
-    margin-top: 1rem;
-    overflow: hidden;
+  height: 3px;
+  border-radius: 10px;
+  background: #0f243c;
+  overflow: hidden;
 }
 
 .progress {
