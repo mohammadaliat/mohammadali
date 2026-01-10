@@ -327,19 +327,24 @@ section {
 }
 
 .about-hero-content {
-    display: block;
-    max-width: 900px;
+    display: flex;
+    max-width: 1000px;
     margin: 0 auto;
     gap: 2rem;
+    justify-content: flex-start;
 }
 
 .about-text-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    text-align: left;
 }
 
 .about-text-content p {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8rem;
 }
 
 .about-text-content .experience-list {
@@ -352,10 +357,17 @@ section {
 
 .about-text-content .hero-buttons {
     display: flex;
-    gap: 0.5rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
 }
 
+.highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: monospace;
+}
 
 /* Skills Section */
 .skills-grid {
