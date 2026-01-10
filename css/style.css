@@ -580,6 +580,12 @@ section {
   font-size: 0.85rem;
 }
 
+.exp-date{
+    color: var(--primary-color);
+    font-family: monospace;
+    font-size: large;
+    margin-bottom: 0.5rem;
+}
 
 /* Contact Section */
 .contact {
