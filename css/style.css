@@ -377,20 +377,54 @@ section {
 }
 
 .skill-card {
-  height: 140px;                 
-  padding: 16px 14px;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(160deg, #050f1e, #020914);
-  transition: all 0.25s ease;
+    height: 140px;                 
+    padding: 16px 14px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.25s ease;
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 255, 200, 0.18);
+    transform: translateY(-12px) scale(1.02); 
+    border-color: var(--primary-color);
+    background: radial-gradient(
+        circle at center, 
+        rgba(100, 255, 218, 0.15) 0%, 
+        rgba(10, 25, 47, 0.95) 100%
+    );
+    box-shadow: 0 20px 40px rgba(2, 12, 27, 0.8), 
+                0 0 30px rgba(100, 255, 218, 0.1);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.skill-card:hover::before,
+.timeline-content:hover::before {
+    left: 150%; /* Moves a light beam across the card */
 }
 
 .skill-card img,
@@ -404,6 +438,17 @@ section {
   display: flex;  
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease;
+  position: relative;
+    z-index: 2;
+}
+
+.skill-card:hover i, 
+.skill-card:hover img,
+.skill-card:hover svg {
+    transform: scale(1.25) translateY(-5px) rotate(8deg); /* Scale up and slight tilt */
+    filter: drop-shadow(0 0 12px var(--primary-color)) brightness(1.2); 
+    color: var(--primary-color);
 }
 
 .skill-card h3,
@@ -417,6 +462,10 @@ section {
   text-align: center;
 }
 
+.skill-card:hover img[alt="ExpressJS"] {
+    filter: drop-shadow(0 0 10px var(--primary-color)) invert(1);
+}
+
 .progress-bar {
     width: 100%;
   height: 3px;
@@ -428,7 +477,7 @@ section {
 .progress {
     height: 100%;
     background-color: var(--primary-color);
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 .progress-75{
@@ -487,7 +536,6 @@ section {
     cursor: default;
 }
 
-/* Lift the card and brighten everything */
 .timeline-content:hover {
     transform: translateY(-8px) scale(1.01);
     border-color: var(--primary-color);
@@ -495,8 +543,6 @@ section {
     box-shadow: 0 20px 40px rgba(2, 12, 27, 0.5);
 }
 
-/* Make badge pop when card is hovered */
-/* Brighten the red badge when the card is hovered */
 .timeline-content:hover .status-badge.in-progress {
     background: rgba(255, 77, 77, 0.25);
     box-shadow: 0 0 20px rgba(255, 77, 77, 0.4);
@@ -526,7 +572,7 @@ section {
     top: 1.2rem;
     right: 1.2rem;
     padding: 5px 14px;
-    border-radius: 30px; /* Fully rounded pill shape */
+    border-radius: 30px;
     font-size: 0.7rem;
     font-family: monospace;
     font-weight: 700;
@@ -535,12 +581,13 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    backdrop-filter: blur(4px); /* Glass effect */
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .status-badge.in-progress {
-    background: rgba(255, 77, 77, 0.12); /* Glassy reddish background */
+    background: rgba(255, 77, 77, 0.12);
     color: #FF4D4D; 
     border: 1px solid rgba(255, 77, 77, 0.4);
     box-shadow: 0 0 15px rgba(255, 77, 77, 0.1);
@@ -553,19 +600,17 @@ section {
     box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
 }
 
-/* Add these keyframes at the bottom of style.css */
 @keyframes live-ping {
     0% {
         transform: scale(1);
         opacity: 1;
     }
     100% {
-        transform: scale(3); /* Slightly larger for a stronger "ping" */
+        transform: scale(3);
         opacity: 0;
     }
 }
 
-/* The dot for In Progress */
 .status-badge.in-progress::before {
     content: "";
     width: 6px;
@@ -575,11 +620,10 @@ section {
     position: relative;
 }
 
-/* The animated ring around the dot */
 .status-badge.in-progress::after {
     content: "";
     position: absolute;
-    left: 14px; /* Align with the ::before dot */
+    left: 14px;
     width: 6px;
     height: 6px;
     background-color: #FF4D4D;
@@ -587,14 +631,12 @@ section {
     animation: live-ping 1.5s infinite;
 }
 
-/* The checkmark for Completed (No pulse needed, just clean) */
 .status-badge.completed::before {
     content: "✓";
     font-size: 0.85rem;
     font-weight: bold;
 }
 
-/* Add these keyframes to style.css */
 @keyframes statusPulse {
     0% {
         box-shadow: 0 0 0 0px rgba(168, 85, 247, 0.4);
@@ -619,24 +661,21 @@ section {
     }
 }
 
-/* Apply the automatic pulse to the small dots inside the badges */
 .status-badge.in-progress::before {
     content: "";
     width: 6px;
     height: 6px;
     background-color: #a855f7;
     border-radius: 50%;
-    animation: statusPulse 2s infinite; /* Automatic pulse */
+    animation: statusPulse 2s infinite;
 }
 
 .status-badge.completed::before {
     content: "✓";
     font-size: 0.8rem;
-    /* Optional: you can animate the whole badge for completed */
     animation: completedPulse 2s infinite; 
 }
 
-/* When the card is hovered, make the badge brighter */
 .timeline-content:hover .status-badge {
     filter: brightness(1.2);
     transform: scale(1.05);
@@ -649,49 +688,96 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    padding: 50px 20px; /* Gives space for the card to move up */
+    overflow: visible !important;
 }
 
 .experience-card {
     background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 4px;
-    border: 1px solid var(--border-soft);
-    transition: transform 0.3s ease;
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    position: relative;
+    overflow: hidden; 
+    transition: transform 0.4s ease, 
+                box-shadow 0.4s ease, 
+                background-color 0.4s ease, 
+                border-color 0.4s ease !important;
+    z-index: 1;
+    cursor: pointer;
+    will-change: transform, box-shadow;
 }
 
+/* THE FIX: !important forces this to override the .fade-in animation */
 .experience-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.01) !important; 
+    border-color: var(--primary-color) !important;
+    z-index: 100 !important;
+    background: radial-gradient(
+        circle at center, 
+        rgba(100, 255, 218, 0.15) 0%, 
+        var(--card-bg) 100%
+    ) !important;    
+    box-shadow: 0 15px 35px rgba(2, 12, 27, 0.6);
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg, 
+        transparent,
+        rgba(255, 255, 255, 0.1), 
+        transparent
+    );
+    transition: 1s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.experience-card:hover::before {
+    left: 150%;
 }
 
 .experience-header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .experience-header i {
     font-size: 2rem;
     color: var(--primary-color);
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.experience-header h3 {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 0;
+.experience-card:hover .experience-header i {
+    transform: scale(1.2);
+}
+
+.exp-date {
+    color: var(--primary-color);
+    font-family: monospace;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .experience-list {
     list-style: none;
+    padding: 0;
     margin-top: 1rem;
-    padding-left: 0;
 }
 
 .experience-list li {
-    color: var(--secondary-text);
-    margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-text);
 }
 
 .experience-list li::before {
@@ -700,7 +786,6 @@ section {
     left: 0;
     color: var(--primary-color);
 }
-
 
 /* Interests Section */
 .interests-grid {
@@ -1371,5 +1456,3 @@ footer {
     }
 }
 
-/* Glowing Buttons */
-/* Reuse single glowPulse keyframes for subtle UI emphasis */
