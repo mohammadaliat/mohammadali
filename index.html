@@ -14,19 +14,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo"><img src="images/logo.png" alt=""></div>
+            <a class="logo" href="#home"><img src="images/logo.png" alt=""></a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#skills">Skills</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#education">Education</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdownbutton">More <span class="arrow-icon"></span></a>
                     <div class="dropdown-content">
-                        <a href="index.html#education">Education</a>
                         <a href="index.html#experience">Experience</a>
-                        <a href="index.html#interests">Interests</a>
                     </div>
                 </li>
             </ul>
@@ -48,12 +46,12 @@
                 <p class="intro fade-in">Welcome to my portfolio. I build responsive web experiences with clean design, secure code, and real purpose. Passionate about learning, experimenting, and turning complex ideas into simple solutions.</p>
                 <div class="hero-buttons fade-in">
                     <a href="#contact" class="cta-button primary">Contact Me</a>
-                    <a href="#projects" class="cta-button secondary">Learn More</a>
+                    <a href="#about" class="cta-button secondary">Learn More</a>
                 </div>
             </div>
             <div class="hero-image fade-in">
                 <div class="profile-circle">
-                    <img src="images/ali.jpg" alt="Mohammad Ali">
+                    <img src="images/image.png" alt="Mohammad Ali">
                 </div>
             </div>
         </div>
@@ -204,15 +202,6 @@
                     <p>Higher Secondary Education (HSE) – Computer Commerce</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="status-badge completed">Completed</span>
-                    <h3>IIT School Connect Program</h3>
-                    <p class="timeline-date">2025 (8-weeks program)</p>
-                    <p class="timeline-institution">IIT Madras</p>
-                    <p>Introduction to Data Science & AI</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -237,49 +226,58 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Featured Projects Section -->
     <section id="featured-projects" class="featured-projects">
         <div class="section-header">
-            <h2>Featured Projects</h2>
+            <h2>Featured Work</h2>
         </div>
 
-        <div class="projects-grid">
-            <div class="project-card fade-in">
-            <h3>Chatting App (Coming soon...)</h3>
-            <p>A simple chatting app.</p>
-            <div class="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress" style="width: 1%"></div>
-            </div>
-            </div>
-        </div>
-    </section>
+        <div class="featured-projects-grid">
+            <a href="projects.html" class="featured-projects-card">
+                <div class="project-content">
+                    <div class="project-top">
+                        <i class="fa-brands fa-java"></i>
+                        <span class="project-status">Pre-release</span>
+                    </div>
+                    <h3>Java Advanced Calculator</h3>
+                    <p>A high-performance calculation engine with a clean GUI. Features basic arithmetic and advanced logic. Open-source on GitHub.</p>
+                    <div class="progress-bar">    
+                        <div class="progress progress-75"></div>
+                    </div>
+                    <div class="project-tags">
+                        <span>Java Swing</span>
+                        <span>OOP</span>
+                        <span>Algorithms</span>
+                    </div>
+                </div>
+                <div class="card-glow-bar"></div>
+            </a>
 
-    <!-- Interests Section -->
-    <section id="interests" class="interests">
-        <div class="section-header">
-            <h2>Interests</h2>
+            <div class="featured-projects-card private-card">
+                <div class="project-content">
+                    <div class="project-top">
+                        <i class="fa-solid fa-lock"></i>
+                        <span class="project-status">Private</span>
+                    </div>
+                    <h3>Project [Classified]</h3>
+                    <p>Confidential project involving backend security and database management. Source code is currently restricted.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-1"></div>
+                    </div>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Security</span>
+                        <span>API</span>
+                    </div>
+                </div>
+                <div class="card-glow-bar"></div>
+            </div>
         </div>
-        <div class="interests-grid">
-            <div class="interest-card fade-in">
-                <i class="fa-solid fa-robot"></i>
-                <h3>AI & Machine Learning</h3>
-                <p>Exploring the frontiers of artificial intelligence and its applications</p>
-            </div>
-            <div class="interest-card fade-in">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Cyber Security</h3>
-                <p>Curios about the internet</p>
-            </div>
-            <div class="interest-card fade-in">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>Mobile Development</h3>
-                <p>Building responsive and intuitive mobile applications</p>
-            </div>
+
+        <div class="view-more-container">
+            <a href="projects.html" class="view-all-btn">
+                View Full Archive <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
@@ -288,20 +286,80 @@
         <div class="section-header">
             <h2>Get In Touch</h2>
         </div>
-        <div class="contact-content fade-in">
-            <p>I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out!</p>
-            <div class="contact-info">
-                <a href="mailto:your_email@example.com">
-                    <i class="fa-solid fa-envelope"></i> Email Me
-                </a>
-                <a href="https://github.com/mohammadaliat" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/mohammadaliat/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                </a>
+        
+        <div class="contact-container">
+            <!-- Info side -->
+            <div class="contact-content">
+                <h3>Let's Start a Project</h3>
+                <p>Open to <strong>freelance work</strong> and collaborations.</p>
+                <p>Have an idea or just want to connect? Let’s talk.</p>
+                <p>I also contribute to <strong>open source</strong> and build tools that help developers grow.</p>
+
+                 <div class="contact-info">
+                    <h5>Email Me</h5>
+                    <a href="mailto:hi@mohammadli.site">hi@mohammadali.site</a>
+                    <p><strong>Location</strong> Kerala, India</p>
+                </div>
+
+                <div class="contact-socials">
+                    <h5>CONNECT ME</h5>
+                    <div class="social-icon-row">
+                        <a href="https://github.com/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" ><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/mohammad_ali_at/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://Instagram.com/mohammad_ali.at/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/mohammadali.web/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Side -->
+            <div class="contact-form-container">
+                <form action="https://script.google.com/macros/s/AKfycbz4X4NqQUwnsPB_66QnbGR_l2otFWNHgtz-0VwwKlxgYNlmUL9U9hAZCXSzLsrl-qAy/exec" method="post" id="contact-form" class="contact-form" target="hidden_iframe">
+
+                    <div class="form-box">
+                        <label for="name" class="input-label">NAME</label>
+                        <div class="form-input">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <input type="text" id="name" name="entry.2110729848" required placeholder="What's your name?" class="contact-input">
+                        </div>
+                    </div>
+
+                    <div class="form-box">
+                        <label for="email" class="input-label">EMAIL</label>
+                        <div class="form-input">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <input type="email" id="email" name="entry.1045781291" required placeholder="Your email address" class="contact-input">
+                        </div> 
+                    </div>
+
+                    <div class="form-box">
+                        <label for="message" class="input-label">MESSAGE</label>
+                        <div class="form-input">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <textarea id="message" name="entry.839337160" required placeholder="Write your message here..." class="contact-input"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Send Message</button>
+
+                </form>
             </div>
         </div>
+    
     </section>
 
     <!-- Footer -->
