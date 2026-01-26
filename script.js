@@ -55,3 +55,27 @@ document.addEventListener('DOMContentLoaded', function () {
     window.open('https://mohammadaliat.github.io', '_blank');
   });
 });
+
+document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+$("#submit-form").submit((e) => {
+  e.preventDefault();
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbz4X4NqQUwnsPB_66QnbGR_l2otFWNHgtz-0VwwKlxgYNlmUL9U9hAZCXSzLsrl-qAy/exec",
+    data: $("#submit-form").serialize(),
+    method: "post",
+    success: function (response) {
+      alert("Form submitted successfully");
+      window.location.reload();
+      //window.location.href="https://google.com"
+    },
+    error: function (err) {
+      alert("Something Error");
+    },
+  });
+});

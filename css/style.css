@@ -53,8 +53,8 @@ body::before {
     background-color: var(--nav-bg);
     padding: 0.5rem 0;
     z-index: 1000;
-    -webkit-backdrop-filter: blur(10px); 
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     top: 0;
     left: 0;
@@ -76,7 +76,7 @@ body::before {
 }
 
 .logo img {
-    height: 48px;
+    height: 50px;
     width: auto;
     transition: height 0.3s ease;
 }
@@ -901,15 +901,18 @@ section {
 
 
 /* Contact Section */
-.contact {
-  padding: 20px 0;
+.contact-section {
+    padding: 20px 0;
+    width: 100%;
+    align-items: center;
+    max-width: 1350px;
 }
 
 .contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
 }
 
 .contact-content {
@@ -970,41 +973,58 @@ section {
 }
 
 .contact-info a {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
     display: inline-block;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.25s ease;
 }
 
-.contact-info:hover a {
-    color: #fff; 
-    text-shadow: 0 0 10px rgba(93, 228, 199, 0.5);
-    text-decoration: none;
+.contact-info a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1.5px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
 }
+
+.contact-info a:hover {
+    color: #5de4c7;
+}
+
+.contact-info a:hover::after {
+    transform: scaleX(1);
+}
+
 
 .contact-info strong {
-    display: block;          /* Forces the text below it to a new line */
+    display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;      /* Slightly smaller for better hierarchy */
+    font-size: 0.8rem;
     font-weight: 600;
     color: #94a3b8;        
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    margin-bottom: 0.4rem;   /* Space between 'LOCATION' and 'Kerala' */
+    margin-bottom: 0.4rem;
 }
 
 .contact-info p {
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;         /* Slightly larger to match your email size */
+    font-size: 1rem;
     color: var(--primary-color);
-    margin: 1.2rem 0 0;      /* Space from the email section above */
+    margin: 1.2rem 0 0;
     text-transform: none;
     letter-spacing: 0.02em;
     pointer-events: none;
-    line-height: 1.2;        /* Keeps the stack tight and clean */
+    line-height: 1.2;
 }
 
 
@@ -1017,7 +1037,7 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
 }
 
 .contact-socials {
@@ -1216,22 +1236,207 @@ textarea.contact-input {
     transform: translateY(-1px);
 }
 
-
 /* =========
    Footer
    ========= */
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--secondary-text);
-    font-family: monospace;
-    font-size: 0.9rem;
+.footer {
+    background-color: #070f20;
+    padding: 40px 4vw 10px;
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.03); 
 }
 
-/* =========
-   PROJECTS 
-   ========= */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 0.45fr;
+    gap: auto;
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 2. BRAND & MOTTO */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1); 
+    margin-bottom: -10px;
+}
+
+.footer-tagline {
+    color: #94a3b8;
+    font-size: 14.5px;
+    line-height: 1.7;
+    font-weight: 400;
+    max-width: 280px;
+    margin-top: -10px;
+}
+
+/* 3. SITEMAP & LINKS */
+.footer h4 {
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-block; 
+    position: relative;    
+    padding-bottom: 2px;   
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after{
+    content: '';
+    position: absolute;
+    width: 0;               
+    height: 1.5px;          
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-links a:hover::after {
+    width: 100%;   
+}
+
+/* 4. SOCIALS GRID */
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.footer-socials a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-socials a span {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.footer-socials a:hover {
+    color: #fff;   
+    transform: translateX(5px);
+}
+
+.footer-socials a:hover i {
+    color: #5de4c7;
+}
+
+/* 5. GET IN TOUCH */
+.get-in-touch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-email { 
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.footer-email:hover { 
+    color: #fff; 
+    text-shadow: 0 0 10px rgba(93, 228, 199, 0.5);
+    text-decoration: none;
+}
+
+.get-in-touch p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+.get-in-touch p strong {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-right: 10px;
+}
+
+/* 6. THE DIVIDER & BOTTOM BAR */
+.footer-line {
+    grid-column: 1 / -1; 
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(10, 147, 99, 0.1), transparent);
+    margin: 15px 0 10px; 
+}
+
+.footer-bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #949494;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    
+}
+
+.footer-credits span {
+    font-weight: 700;
+    color: #949494;
+}
+
+.footer-bottom a {
+    color: #5de4c7;
+    text-decoration: none;
+}
+
+/* ================
+   PROJECTS SECTION
+   ================ */
 .projects {
     max-width: 1200px;
     margin: 0 auto;

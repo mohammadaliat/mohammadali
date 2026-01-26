@@ -14,7 +14,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <a class="logo" href="#home"><img src="images/logo.png" alt=""></a>
+            <a class="logo" href="#home" title="Mohammad Ali - Home"><img src="images/logo.png" alt="Mohammad Ali"></a>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#skills">Skills</a></li>
@@ -282,7 +282,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
         <div class="section-header">
             <h2>Get In Touch</h2>
         </div>
@@ -306,15 +306,17 @@
                     <div class="social-icon-row">
                         <a href="https://github.com/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" ><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://x.com/mohammad_ali_at/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
                         <a href="https://Instagram.com/mohammad_ali.at/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://facebook.com/mohammadali.web/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://gitlab.com/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="Gitlab"><i class="fab fa-gitlab"></i></a>
+                        <a href="https://discord.com/users/1102847348134137926/" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="https://x.com/mohammad_ali_at/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <!-- Form Side -->
             <div class="contact-form-container">
-                <form action="https://script.google.com/macros/s/AKfycbz4X4NqQUwnsPB_66QnbGR_l2otFWNHgtz-0VwwKlxgYNlmUL9U9hAZCXSzLsrl-qAy/exec" method="post" id="contact-form" class="contact-form" target="hidden_iframe">
+                <form action="https://script.google.com/macros/s/AKfycbwU9sKconO29hp_MIJxmczNz8gfoMpFmZAoAHevAeqa6Wt4aIhHPIyHqKNehF45jFZz/exec" method="post" id="contact-form" class="contact-form" target="hidden_iframe">
 
                     <div class="form-box">
                         <label for="name" class="input-label">NAME</label>
@@ -325,7 +327,7 @@
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                             </div>
-                            <input type="text" id="name" name="entry.2110729848" required placeholder="What's your name?" class="contact-input">
+                            <input type="text" id="name" name="name" required placeholder="What's your name?" class="contact-input">
                         </div>
                     </div>
 
@@ -338,7 +340,7 @@
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
                             </div>
-                            <input type="email" id="email" name="entry.1045781291" required placeholder="Your email address" class="contact-input">
+                            <input type="email" id="email" name="email" required placeholder="Your email address" class="contact-input">
                         </div> 
                     </div>
 
@@ -350,7 +352,7 @@
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                 </svg>
                             </div>
-                            <textarea id="message" name="entry.839337160" required placeholder="Write your message here..." class="contact-input"></textarea>
+                            <textarea id="message" name="message" required placeholder="Write your message here..." class="contact-input"></textarea>
                         </div>
                     </div>
 
@@ -363,8 +365,80 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025-26 Mohammad Ali. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- Footer Brand -->
+            <div class="footer-brand">
+               <a class="footer-logo" href="#home" title="Mohammad Ali"><img src="images/logo.png" alt="Mohammad Ali"></a>
+               <p class="footer-tagline">A tech enthusiast crafting innovative solutions with passion and precision.</p>
+            </div>
+
+            <!-- Sitemap Links -->
+            <div  class="footer-links">
+                <div class="link-group"> 
+                    <h4>Sitemap</h4>     
+                    <ul>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="index.html#education">Education</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Socials  -->
+            <div class="footer-socials">
+                <h4>Socials</h4>
+                <a href="https://github.com/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" >
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                        <span>Linkedin</span>
+                </a>
+                <a href="https://Instagram.com/mohammad_ali.at/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://facebook.com/mohammadali.web/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://gitlab.com/mohammadaliat/" target="_blank" rel="noopener noreferrer" aria-label="Gitlab">
+                    <i class="fab fa-gitlab"></i>
+                    <span>Gitlab</span>
+                </a>
+                <a href="https://discord.com/users/1102847348134137926/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="https://x.com/mohammad_ali_at/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="get-in-touch">
+                <h4>Get In Touch</h4>
+                <a href="mailto:mohammadaliat2010@gmail.com" class="footer-email">hi@mohmammadali.site</a>
+                <p><strong>Location</strong> Kerala, India</p>
+            </div>
+
+            
+            <div class="footer-line"></div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025-2026 Mohammad Ali. All rights reserved.</p>
+                <div class="footer-credits">
+                    <span>Designed & Built by <a href="mohammadali.site">Mohammad Ali</a></span>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
