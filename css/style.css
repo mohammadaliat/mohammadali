@@ -1564,6 +1564,10 @@ textarea.contact-input {
   transform: translateY(-2px) scale(1.08);
 }
 
+#submitMessage { margin-top: 10px; padding: 10px; border-radius: 4px; font-weight: 500; }
+#submitMessage.success { background:#e6ffed; color:#0b6b3b; border:1px solid #b2f0c4; }
+#submitMessage.error   { background:#ffecec; color:#941818; border:1px solid #f5c2c2; }
+
 /* =====================================================================
     BUTTONS, ANIMATIONS, INTERACTIONS, EFFECTS, ETC...
    ===================================================================== */
@@ -1976,6 +1980,20 @@ textarea.contact-input {
     
     .contact-form {
         width: 100%;
+    }
+
+    /* Submit message styles */
+    #submitMessage { margin-top: 12px; padding: 12px 14px; border-radius: 8px; font-weight: 500; transition: opacity 0.25s ease; }
+    #submitMessage.success { background: #e9fff0; color: #065f2b; border: 1px solid #bdf3c9; }
+    #submitMessage.error   { background: #fff2f2; color: #7a1919; border: 1px solid #f3c2c2; }
+
+    /* Visual feedback for submit button success */
+    .submit-button.success {
+        background: linear-gradient(90deg, #64ffda, #38bdf8);
+        color: rgba(2, 12, 27, 0.95);
+        border-color: rgba(0,0,0,0.06);
+        box-shadow: 0 6px 18px rgba(100,255,218,0.12);
+        transform: translateY(-1px);
     }
 
     /* Footer Section */

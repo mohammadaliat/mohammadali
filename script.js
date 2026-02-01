@@ -51,31 +51,107 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-   document.getElementById('myProject').addEventListener('click', () => {
-    window.open('https://mohammadaliat.github.io', '_blank');
-  });
-});
-
-document.getElementById('backToTop').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  const myProjectBtn = document.getElementById('myProject');
+  if (myProjectBtn) {
+    myProjectBtn.addEventListener('click', () => {
+      window.open('https://mohammadaliat.github.io', '_blank');
     });
+  }
 });
 
-$("#submit-form").submit((e) => {
-  e.preventDefault();
-  $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbz4X4NqQUwnsPB_66QnbGR_l2otFWNHgtz-0VwwKlxgYNlmUL9U9hAZCXSzLsrl-qAy/exec",
-    data: $("#submit-form").serialize(),
-    method: "post",
-    success: function (response) {
-      alert("Form submitted successfully");
-      window.location.reload();
-      //window.location.href="https://google.com"
-    },
-    error: function (err) {
-      alert("Something Error");
-    },
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
+
+(function(){
+  const form = document.getElementById('submit-form');
+  if (!form) return;
+  const successDisplayMs = 5000;
+
+  let msg = document.getElementById('submitMessage');
+  if (!msg) {
+    msg = document.createElement('div');
+    msg.id = 'submitMessage';
+    msg.className = 'submit-message';
+    msg.setAttribute('role', 'status');
+    msg.setAttribute('aria-live', 'polite');
+    msg.style.marginTop = '10px';
+    form.parentNode.insertBefore(msg, form.nextSibling);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let didSucceed = false;
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    const url = 'https://script.google.com/macros/s/AKfycbwL3lpOH4V5UBBz1TI-BXiOkRnnaFYHfY1D7ckuFAsJubYI6tOTAHyZnbOLgGPRtdyD/exec';
+
+    const showMessage = (type, text) => {
+      msg.textContent = text;
+      msg.classList.remove('success', 'error');
+      msg.classList.add(type);
+      // auto-hide success messages after 5s
+      if (type === 'success') {
+        setTimeout(() => { msg.textContent = ''; msg.classList.remove('success'); }, 7000);
+      }
+    };
+
+    try {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.setAttribute('aria-busy', 'true');
+      }
+
+      const formData = new FormData(form);
+      const body = new URLSearchParams();
+      for (const pair of formData) body.append(pair[0], pair[1]);
+
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: body.toString()
+      });
+
+      if (!res.ok) throw new Error(`Server responded ${res.status}`);
+
+      const successBtnText = 'Thank you :)';
+      if (submitBtn) {
+        submitBtn.textContent = successBtnText;
+        submitBtn.disabled = true;
+        submitBtn.classList.add('success');
+      }
+
+      showMessage('success', "Thanks❤️! Your message was sent successfully — i'll get back to you soon. ✅");
+      form.reset();
+      didSucceed = true;
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText || 'Send Message';
+          submitBtn.classList.remove('success');
+        }
+        window.location.reload();
+      }, successDisplayMs);
+    } catch (err) {
+      console.error('Form submit error', err);
+      showMessage('error', 'Sorry, something went wrong. Please try again later or contact me directly.');
+    } finally {
+      if (submitBtn) {
+        // If submit succeeded we keep the "Thank you :)" state until the setTimeout restores it and reloads.
+        if (!didSucceed) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText || 'Submit';
+        }
+        submitBtn.removeAttribute('aria-busy');
+      }
+    }
+  });
+})();
