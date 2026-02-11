@@ -54,8 +54,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const myProjectBtn = document.getElementById('myProject');
   if (myProjectBtn) {
     myProjectBtn.addEventListener('click', () => {
-      window.open('https://mohammadaliat.github.io', '_blank');
+      window.open('https://mohammadali.site', '_blank');
     });
+  }
+
+  const moreBtn = document.querySelector('.dropdownbutton');
+  const dropdown = document.querySelector('.dropdown-content');
+
+  if (moreBtn && dropdown) {
+      moreBtn.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          e.stopPropagation();
+          dropdown.classList.toggle('show-dropdown');
+      });
+
+      window.addEventListener('click', (e) => {
+          if (!moreBtn.contains(e.target) && !dropdown.contains(e.target)) {
+              dropdown.classList.remove('show-dropdown');
+          }
+      });
   }
 });
 
@@ -155,3 +172,7 @@ if (backToTopBtn) {
     }
   });
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons(); // replace data-lucide placeholders with inline SVGs
+  });
