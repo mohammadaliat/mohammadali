@@ -281,7 +281,7 @@ display: inline-block;
 }
 
 .social-icons a:hover {
-    color: var(--primary-color); /
+    color: var(--primary-color); 
     background: rgba(100, 255, 218, 0.1);
     border-color: var(--primary-color);
     transform: translateY(-5px); 
@@ -1939,7 +1939,7 @@ textarea.contact-input {
         justify-content: center;
         width: 100%;
         gap: 5px;
-        background: none !important; /
+        background: none !important;
         outline: none !important;
         -webkit-tap-highlight-color: transparent; /* Fixes mobile tap box */
     }
