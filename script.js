@@ -77,6 +77,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+});
 if (backToTopBtn) {
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({
@@ -174,5 +181,34 @@ if (backToTopBtn) {
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons(); // replace data-lucide placeholders with inline SVGs
+    lucide.createIcons(); 
   });
+
+// --- Active Link on Scroll Logic ---
+const sections = document.querySelectorAll('section[id]');
+const navLinkElems = document.querySelectorAll('.nav-links a');
+
+const options = {
+    threshold: 0.6
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            
+            // Remove active class from all links
+            navLinkElems.forEach(link => {
+                link.classList.remove('active-link');
+                // Check if the link href matches the current section id
+                if (link.getAttribute('href').includes(`#${id}`)) {
+                    link.classList.add('active-link');
+                }
+            });
+        }
+    });
+}, options);
+
+// Start observing each section
+sections.forEach(section => observer.observe(section));
+
