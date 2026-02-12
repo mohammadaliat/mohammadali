@@ -169,7 +169,6 @@ if (backToTopBtn) {
       showMessage('error', 'Sorry, something went wrong. Please try again later or contact me directly.');
     } finally {
       if (submitBtn) {
-        // If submit succeeded we keep the "Thank you :)" state until the setTimeout restores it and reloads.
         if (!didSucceed) {
           submitBtn.disabled = false;
           submitBtn.textContent = originalBtnText || 'Submit';
@@ -197,7 +196,6 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
             
-            // Remove active class from all links
             navLinkElems.forEach(link => {
                 link.classList.remove('active-link');
                 // Check if the link href matches the current section id
