@@ -51,13 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  const myProjectBtn = document.getElementById('myProject');
-  if (myProjectBtn) {
-    myProjectBtn.addEventListener('click', () => {
-      window.open('https://mohammadali.site', '_blank');
-    });
-  }
-
   const moreBtn = document.querySelector('.dropdownbutton');
   const dropdown = document.querySelector('.dropdown-content');
 
