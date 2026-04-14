@@ -203,3 +203,69 @@ const observer = new IntersectionObserver((entries) => {
 // Start observing each section
 sections.forEach(section => observer.observe(section));
 
+const tl = gsap.timeline();
+
+// name fades in
+tl.to(".name", {
+  opacity: 1,
+  y: -10,
+  duration: 1,
+  ease: "power3.out"
+});
+
+// tagline fades in slightly after
+tl.to(".tagline", {
+  opacity: 1,
+  y: -10,
+  duration: 1,
+  ease: "power3.out"
+}, "-=0.5");
+
+// line expands
+tl.to(".line", {
+  width: "100%",
+  duration: 1,
+  ease: "power2.out"
+});
+
+// small pause (this is what makes it feel premium)
+tl.to({}, { duration: 0.8 });
+
+// smooth fade out (not slide — cleaner)
+tl.to("#loader", {
+  opacity: 0,
+  duration: 1.2,
+  ease: "power4.inOut"
+});
+
+// remove loader
+tl.set("#loader", {
+  display: "none"
+});
+
+const cursor = document.querySelector(".cursor");
+const follower = document.querySelector(".cursor-follower");
+
+let mouseX = 0;
+let mouseY = 0;
+
+// track mouse
+window.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+// smooth follow
+gsap.ticker.add(() => {
+  gsap.to(cursor, {
+    x: mouseX - 4, // half of width (8px)
+    y: mouseY - 4,
+    duration: 0.1
+  });
+
+  gsap.to(follower, {
+    x: mouseX - 15, // half of width (30px)
+    y: mouseY - 15,
+    duration: 0.3
+  });
+});
