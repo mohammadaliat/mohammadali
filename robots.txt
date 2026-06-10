@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap reference
+Sitemap: https://mohammadali.site/sitemap.xml
+
+# API Catalog
+Allow: /.well-known/api-catalog
+
+# Agent Skills Discovery
+Allow: /.well-known/agent-skills/
+
+# MCP Server Card
+Allow: /.well-known/mcp/
+
+# Auth metadata
+Allow: /.well-known/oauth-authorization-server
+Allow: /.well-known/openid-configuration
+Allow: /.well-known/oauth-protected-resource

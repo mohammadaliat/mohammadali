@@ -12,6 +12,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mohammad Ali</title>
+        <meta name="description" content="Mohammad Ali - Full Stack Developer specializing in MERN, Python, and cybersecurity. View portfolio, projects, and contact information.">
+        <meta name="keywords" content="developer, portfolio, full-stack, MERN, Python, web development, cybersecurity">
+        <meta name="author" content="Mohammad Ali">
+
+        <!-- Agent Discovery Links (RFC 8288) -->
+        <link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json" title="API Catalog">
+        <link rel="agent-skills" href="/.well-known/agent-skills/index.json" type="application/json" title="Agent Skills Index">
+        <link rel="service-doc" href="/projects.html" type="text/html" title="Project Documentation">
+        <link rel="service-meta" href="/.well-known/mcp/server-card.json" type="application/json" title="MCP Server Card">
+
         <link rel="icon" href="images/logo.png" type="image/gif" sizes="30x30">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -19,6 +29,114 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
         <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+        <!-- WebMCP Support for Agent Discovery -->
+        <script>
+            // Initialize WebMCP tools for AI agent discovery
+            if (navigator.modelContext) {
+                navigator.modelContext.provideContext({
+                    tools: [
+                        {
+                            name: 'get_portfolio_info',
+                            description: 'Get Mohammad Ali\'s portfolio overview, background, and expertise',
+                            inputSchema: {
+                                type: 'object',
+                                properties: {
+                                    section: {
+                                        type: 'string',
+                                        enum: ['about', 'skills', 'experience', 'education', 'all'],
+                                        description: 'Portfolio section to retrieve'
+                                    }
+                                },
+                                required: []
+                            },
+                            execute: async (input) => {
+                                const section = input?.section || 'all';
+                                return {
+                                    success: true,
+                                    message: 'Navigate to / for full portfolio',
+                                    url: 'https://mohammadali.site/#' + (section === 'all' ? 'about' : section),
+                                    sections: ['about', 'skills', 'experience', 'education']
+                                };
+                            }
+                        },
+                        {
+                            name: 'browse_projects',
+                            description: 'Browse Mohammad Ali\'s project portfolio and work samples',
+                            inputSchema: {
+                                type: 'object',
+                                properties: {
+                                    category: {
+                                        type: 'string',
+                                        description: 'Project category or filter'
+                                    }
+                                },
+                                required: []
+                            },
+                            execute: async (input) => {
+                                return {
+                                    success: true,
+                                    message: 'View projects at /projects.html',
+                                    url: 'https://mohammadali.site/projects.html'
+                                };
+                            }
+                        },
+                        {
+                            name: 'get_contact_info',
+                            description: 'Get contact information and social profiles',
+                            inputSchema: {
+                                type: 'object',
+                                properties: {
+                                    type: {
+                                        type: 'string',
+                                        enum: ['email', 'github', 'linkedin', 'all'],
+                                        description: 'Contact type to retrieve'
+                                    }
+                                },
+                                required: []
+                            },
+                            execute: async (input) => {
+                                const contacts = {
+                                    email: 'hi@mohammadali.site',
+                                    github: 'https://github.com/mohammadaliat/',
+                                    linkedin: 'https://linkedin.com/in/mohammadaliat/',
+                                    instagram: 'https://instagram.com/__ali_at_/',
+                                    twitter: 'https://x.com/__ali_at_/'
+                                };
+                                return {
+                                    success: true,
+                                    contacts: contacts,
+                                    url: 'https://mohammadali.site/#contact'
+                                };
+                            }
+                        },
+                        {
+                            name: 'get_skills',
+                            description: 'Get comprehensive list of technical skills and proficiency levels',
+                            inputSchema: {
+                                type: 'object',
+                                properties: {
+                                    category: {
+                                        type: 'string',
+                                        enum: ['programming', 'web', 'backend', 'devops', 'security', 'all'],
+                                        description: 'Skill category filter'
+                                    }
+                                },
+                                required: []
+                            },
+                            execute: async (input) => {
+                                return {
+                                    success: true,
+                                    message: 'View detailed skills at /#skills',
+                                    url: 'https://mohammadali.site/#skills',
+                                    categories: ['programming', 'web', 'backend', 'devops', 'security']
+                                };
+                            }
+                        }
+                    ]
+                });
+            }
+        </script>
     </head>
 
     <body>

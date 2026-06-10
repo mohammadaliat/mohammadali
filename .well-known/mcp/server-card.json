@@ -1,0 +1,33 @@
+{
+  "serverInfo": {
+    "name": "Mohammad Ali Portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio website featuring projects, skills, and professional information"
+  },
+  "transport": {
+    "type": "http",
+    "url": "https://mohammadali.site"
+  },
+  "capabilities": {
+    "resourceTypes": [
+      "text/html",
+      "application/json"
+    ],
+    "maxTokens": 2000,
+    "supportsAsyncRequests": false,
+    "supportedMimeTypes": [
+      "text/html",
+      "application/json",
+      "text/plain"
+    ]
+  },
+  "metadata": {
+    "author": "Mohammad Ali",
+    "license": "CC BY 4.0",
+    "discoveryUrls": {
+      "apiCatalog": "/.well-known/api-catalog",
+      "skillsIndex": "/.well-known/agent-skills/index.json",
+      "sitemap": "/sitemap.xml"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "issuer": "https://mohammadali.site",
+  "authorization_endpoint": null,
+  "token_endpoint": null,
+  "jwks_uri": null,
+  "scopes_supported": [],
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "token_endpoint_auth_methods_supported": [],
+  "claim_types_supported": [
+    "public"
+  ],
+  "service_documentation": "https://mohammadali.site/auth.md",
+  "note": "This is a public portfolio site with no protected resources. All content is publicly accessible without authentication."
+}

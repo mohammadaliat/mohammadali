@@ -1,0 +1,27 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://mohammadali.site/",
+      "links": [
+        {
+          "rel": "service-doc",
+          "href": "/projects.html",
+          "type": "text/html",
+          "title": "Portfolio & Projects"
+        },
+        {
+          "rel": "about",
+          "href": "/index.html",
+          "type": "text/html",
+          "title": "About Mohammad Ali"
+        },
+        {
+          "rel": "service-meta",
+          "href": "/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent Skills Discovery"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "resource": "https://mohammadali.site",
+  "resource_documentation": "https://mohammadali.site/auth.md",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "public": true,
+  "note": "This resource is publicly accessible. No authentication credentials are required for access."
+}

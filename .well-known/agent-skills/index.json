@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0.json",
+  "skills": [
+    {
+      "name": "portfolio-overview",
+      "type": "discovery",
+      "description": "Learn about Mohammad Ali's background, skills, and experience",
+      "url": "https://mohammadali.site/index.html",
+      "sha256": "portfolio-skill-hash"
+    },
+    {
+      "name": "projects-catalog",
+      "type": "discovery",
+      "description": "Browse Mohammad Ali's completed projects and portfolio work",
+      "url": "https://mohammadali.site/projects.html",
+      "sha256": "projects-skill-hash"
+    },
+    {
+      "name": "contact-information",
+      "type": "discovery",
+      "description": "Find contact details and social media profiles",
+      "url": "https://mohammadali.site/index.html#contact",
+      "sha256": "contact-skill-hash"
+    }
+  ]
+}
